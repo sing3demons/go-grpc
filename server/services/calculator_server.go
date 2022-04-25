@@ -1,0 +1,19 @@
+package services
+
+import (
+	context "context"
+	"fmt"
+)
+
+type calculatorServer struct{}
+
+func NewCalculatorServer() CalculatorServer {
+	return &calculatorServer{}
+}
+
+func (calculatorServer) Hello(c context.Context, req *HelloRequest) (*HelloResponse, error) {
+	result := fmt.Sprintf("Hello %v", req.Name)
+	res := HelloResponse{Result: result}
+	return &res, nil
+}
+func (calculatorServer) mustEmbedUnimplementedCalculatorServer() {}

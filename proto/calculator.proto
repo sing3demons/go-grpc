@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package servics;
+package services;
+
+option go_package="./services";
 
 service Calculator{
     rpc Hello(HelloRequest) returns(HelloResponse);
